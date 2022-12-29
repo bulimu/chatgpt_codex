@@ -87,7 +87,7 @@ const handleSubmit = async (e) => {
     loader(messageDiv)
 
     // fetch url...
-    const response = await fetch('http://localhost:5000', {
+    const response = await fetch('https://codex-famg.onrender.com', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
