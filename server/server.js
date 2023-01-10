@@ -27,6 +27,7 @@ app.post('/', async (req, res) => {
     try {
         const prompt = req.body.prompt;
 
+        // get from openai: 
         const response = await openai.createCompletion({
             model: "text-davinci-003",
             prompt: `${prompt}`,
@@ -35,14 +36,10 @@ app.post('/', async (req, res) => {
             top_p: 1,
             frequency_penalty: 0.5,
             presence_penalty: 0,          
-
         });
         res.status(200).send({
-            bot: response.data.choices[0].text
-            
-        })
-       
-    
+            bot: response.data.choices[0].text          
+        })      
     } catch(error){
         console.log(error);
         res.status(200).send({ error })
